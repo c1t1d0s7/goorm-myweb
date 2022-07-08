@@ -4,7 +4,8 @@
   vars:
     docker_id: c1t1d0s7
     container_name: myweb
-    image_name: "{{ docker_id }}/goorm-myweb"
+    image_tag: "{{ lookup('env', 'BUILD_NUMBER') }}"
+    image_name: "{{ docker_id }}/goorm-myweb:{{ image_tag }}"
 
   tasks:
     - name: Create/Start Container
